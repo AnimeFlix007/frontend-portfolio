@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import ProfileBg from "../images/ProfileBgImg.jfif";
+import ProfileBg2 from "../images/animneBgImg.jfif";
 import MERN__img from "../images/MERN__img.png";
 import "../scss/Home.scss";
 
@@ -18,7 +19,7 @@ const Home = () => (
         </div>
 
         <p className="p-text app__header-role">
-          Full Stack Mern <img src={MERN__img} alt="" /> Developer
+          Full Stack <img src={MERN__img} alt="" /> Developer
         </p>
         <div className="btn__container">
           <button className="btn btn__primary">Projects</button>
@@ -27,13 +28,20 @@ const Home = () => (
       </div>
     </motion.div>
 
-    <motion.div
+    <motion.img
       whileInView={{ opacity: [0, 1] }}
+      transition={{ duration: 0.5, delayChildren: 0.5 , delay: .2}}
+      className="app__header-img"
+      src={ProfileBg}
+      alt="profile_bg1"
+    />
+    <motion.img
+      whileInView={{ opacity: [0, 1], x:[100, 0] }}
       transition={{ duration: 0.5, delayChildren: 0.5 }}
-      className="app__header-img app__flex"
-    >
-      <img src={ProfileBg} alt="profile_bg" />
-    </motion.div>
+      className="app__header-img-mobile"
+      src={ProfileBg2}
+      alt="profile_bg2"
+    />
   </div>
 );
 

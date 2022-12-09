@@ -11,9 +11,13 @@ const Header = () => {
   const showHandler = () => {
     setNav((prev) => !prev);
   };
-  const activeClass = nav ? "app__navbar-links active" : "app__navbar-links"
+  const activeClass = nav ? "app__navbar-links" : "app__navbar-links active";
   return (
-    <nav className="app__navbar">
+    <motion.nav
+      whileInView={{ opacity: [0, 1] }}
+      transition={{ duration: 0.5, delayChildren: 0.5 }}
+      className="app__navbar"
+    >
       <div className="app__navbar-logo">
         <img src={Logo} alt="logo" />
       </div>
@@ -28,10 +32,10 @@ const Header = () => {
         )}
       </ul>
       <div className="hamburger" onClick={showHandler}>
-          {nav && <HiBars3BottomRight />}
-          {!nav && <FaTimes />}
-        </div>
-    </nav>
+        {!nav && <HiBars3BottomRight />}
+        {nav && <FaTimes />}
+      </div>
+    </motion.nav>
   );
 };
 

@@ -59,12 +59,19 @@
   cursor: pointer;
   transition: .3s ease-in-out;
   color: black;
-  letter-spacing: 1px ;
+  letter-spacing: 1px;
   text-transform: uppercase;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 
   &:hover {
     background-color: rgba(255,255,255,.2);
+  }
+
+  @media screen and (max-width: 700px) {
+    padding: 1rem .7rem;
+    letter-spacing: 1px;
+    margin: 1rem;
+    font-size: .85rem;
   }
 }
 
