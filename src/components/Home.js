@@ -29,7 +29,7 @@ const Home = () => (
     </motion.div>
 
     <motion.img
-      whileInView={{ opacity: [0, 1] }}
+      whileInView={{ opacity: [0, 1], x:[100, 0] }}
       transition={{ duration: 0.5, delayChildren: 0.5 , delay: .2}}
       className="app__header-img"
       src={ProfileBg}
@@ -37,7 +37,7 @@ const Home = () => (
     />
     <motion.img
       whileInView={{ opacity: [0, 1], x:[100, 0] }}
-      transition={{ duration: 0.5, delayChildren: 0.5 }}
+      transition={{ duration: 0.5, delayChildren: 0.5, delay: .2 }}
       className="app__header-img-mobile"
       src={ProfileBg2}
       alt="profile_bg2"
