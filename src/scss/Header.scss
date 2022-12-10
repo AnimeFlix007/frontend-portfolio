@@ -1,5 +1,6 @@
 .app__navbar {
   width: 100%;
+  height: auto;
 
   display: flex;
   justify-content: space-between;
@@ -14,8 +15,6 @@
   border: 1px solid rgba(255, 255, 255, 0.18);
 
   position: fixed;
-  top: 0%;
-  left: 0%;
   z-index: 12;
 
   @media screen and (max-width: 800px) {
@@ -95,7 +94,7 @@
     flex-direction: column;
     width: 100%;
     height: 100vh;
-    top: 0;
+    top: 0%;
     left: 0%;
     justify-content: center;
     align-items: center;
@@ -124,7 +123,6 @@
   border-radius: 50%;
   width: 45px;
   height: 45px;
-
 
   svg {
     width: 28px;

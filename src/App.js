@@ -8,18 +8,20 @@ import Footer from "./components/Footer";
 import Home from "./components/Home";
 
 import './App.scss'
+import SocialMedia from "./components/SocialMedia";
 
 function App() {
   return (
     <div className="app">
       <Header />
+      <SocialMedia />
       <Home />
       <About />
       <Projects />
-      <Skills />
+      {/* <Skills />
       <WorkExperience />
       <Contact />
-      <Footer />
+      <Footer /> */}
     </div>
   );
 }

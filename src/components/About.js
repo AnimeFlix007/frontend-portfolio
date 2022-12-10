@@ -1,36 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import frontEnd from "../images/frontEnd.jpg";
-import reactJs from "../images/reactJs.jpg";
-import MERN from "../images/MERN.jfif";
-import backEnd from "../images/backend.jfif";
-
-// import { AppWrap, MotionWrap } from '../../wrapper';
+import { client, urlFor } from "../Cliient";
 import "../scss/About.scss";
-// import { urlFor, client } from '../../client';
 
 const About = () => {
-  const abouts = [
-    {
-      title: "ReactJs Developer",
-      image: reactJs,
-    },
-    {
-      title: "REST API / Node.js",
-      image: backEnd,
-    },
-    {
-      title: "UI Designs",
-      image: frontEnd,
-    },
-    {
-      title: "MERN Stack Development",
-      image: MERN,
-    },
-  ];
+  const [abouts, setAbouts] = useState([]);
 
+  useEffect(() => {
+    const query = '*[_type == "abouts"]';
+
+    client.fetch(query).then((data) => {
+      setAbouts(data);
+    });
+
+  }, []);
   return (
-    <section className="app__about">
+    <section id="about" className="app__about">
       <h2 className="head-text">
         I've <span>Great Knowledge</span> <br />
         and <span>Good Projects</span>
@@ -39,13 +24,13 @@ const About = () => {
       <div className="app__profiles">
         {abouts.map((about, index) => (
           <motion.div
-            whileInView={{ opacity: 1 }}
+            whileInView={{ opacity: [0, 1], x: [-100, 0] }}
             whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.5, type: "tween" }}
+            transition={{ duration: 0.5, type: "tween", delay: 0.3 }}
             className="app__profile-item"
             key={about.title + index}
           >
-            <img src={about.image} alt={about.title} />
+            <img src={urlFor(about.imgUrl)} alt={about.title} />
             <h2 className="bold-text" style={{ marginTop: 20 }}>
               {about.title}
             </h2>
