@@ -17,7 +17,7 @@ const Skills = () => {
   }, []);
 
   return (
-    <div className="app__skills-container">
+    <div id="skills" className="app__skills-container">
       <h1 className="head-text">Skills</h1>
       <motion.div className="app__skills-list">
         {skills.map((skill) => (

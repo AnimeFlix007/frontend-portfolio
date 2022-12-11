@@ -20,8 +20,8 @@ const Home = () => (
           Full Stack <img src={MERN__img} alt="" /> Developer
         </p>
         <div className="btn__container">
-          <button className="btn btn__primary">Projects</button>
-          <button className="btn btn__secondary">Contact Me</button>
+          <a href="#Projects" className="btn btn__primary">Projects</a>
+          <a href="#contact" className="btn btn__secondary">Contact Me</a>
         </div>
       </div>
     </div>
