@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 import ProfileBg from "../images/ProfileBgImg.jfif";
 import ProfileBg2 from "../images/animneBgImg.jfif";
 import MERN__img from "../images/MERN__img.png";
