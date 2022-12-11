@@ -1,6 +1,5 @@
 .app__navbar {
   width: 100%;
-  height: auto;
 
   display: flex;
   justify-content: space-between;
@@ -15,6 +14,8 @@
   border: 1px solid rgba(255, 255, 255, 0.18);
 
   position: fixed;
+  top: 0%;
+  left: 0%;
   z-index: 12;
 
   @media screen and (max-width: 800px) {
@@ -100,6 +101,7 @@
     align-items: center;
     background: var(--shadow-color);
     transition: 0.5s ease;
+    z-index: 20;
     &.active {
       left: -100%;
     }
@@ -121,8 +123,8 @@
   margin: 0.2rem .7rem;
   background-color: var(--secondary-color);
   border-radius: 50%;
-  width: 45px;
-  height: 45px;
+  // width: 45px;
+  // height: 45px;
 
   svg {
     width: 28px;

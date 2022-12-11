@@ -23,10 +23,7 @@ const About = () => {
 
       <div className="app__profiles">
         {abouts.map((about, index) => (
-          <motion.div
-            whileInView={{ opacity: [0, 1], x: [-100, 0] }}
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.5, type: "tween", delay: 0.3 }}
+          <div
             className="app__profile-item"
             key={about.title + index}
           >
@@ -37,7 +34,7 @@ const About = () => {
             <p className="p-text" style={{ marginTop: 10 }}>
               {about.description}
             </p>
-          </motion.div>
+          </div>
         ))}
       </div>
     </section>

@@ -13,9 +13,9 @@ const Header = () => {
   };
   const activeClass = nav ? "app__navbar-links" : "app__navbar-links active";
   return (
-    <motion.header
+    <motion.nav
       whileInView={{ opacity: [0, 1] }}
-      transition={{ duration: 0.5, delayChildren: 0.5 }}
+      transition={{ duration: 0.5 }}
       className="app__navbar"
     >
       <div className="app__navbar-logo">
@@ -35,7 +35,7 @@ const Header = () => {
         {!nav && <HiBars3BottomRight />}
         {nav && <FaTimes />}
       </div>
-    </motion.header>
+    </motion.nav>
   );
 };
 

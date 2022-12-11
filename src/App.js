@@ -7,20 +7,20 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 
-import './App.scss'
+import "./App.scss";
 import SocialMedia from "./components/SocialMedia";
 
 function App() {
   return (
     <div className="app">
       <Header />
-      <SocialMedia />
       <Home />
+      <SocialMedia />
       <About />
       <Projects />
-      {/* <Skills />
+      <Skills />
       <WorkExperience />
-      <Contact />
+      {/*  <Contact />
       <Footer /> */}
     </div>
   );
