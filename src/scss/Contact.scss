@@ -1,10 +1,11 @@
 .app__contact {
   flex: 1;
   width: 100%;
-  min-height: 100vh;
+  min-height: max-content;
   flex-direction: column;
-  margin: 3rem auto;
-  margin-bottom: 3rem;
+  margin: 0 auto;
+  margin-top: 3rem;
+  padding-bottom: 3rem;
 
   @media screen and (max-width: 768px) {
     flex-direction: column;

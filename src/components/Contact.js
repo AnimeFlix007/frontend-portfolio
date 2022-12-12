@@ -1,8 +1,9 @@
 import { useFormik } from "formik";
-import React from "react";
+import React, { useRef } from "react";
 import contactSchema from "../schema/ContactFormSchema";
 import "../scss/Contact.scss";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
+import emailjs from "@emailjs/browser";
 
 const initialValues = {
   name: "",
@@ -11,22 +12,49 @@ const initialValues = {
 };
 
 const Contact = () => {
+  const form = useRef()
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
       initialValues,
       validationSchema: contactSchema,
       onSubmit: async (values, action) => {
         console.log("submitted", values);
-        toast.success('🦄 Wow so easy!', {
-          position: "bottom-left",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-          });
+        emailjs
+          .sendForm(
+            process.env.REACT_APP_SERVICE_ID,
+            process.env.REACT_APP_TEMPLATE_ID,
+            form.current,
+            process.env.REACT_APP_PUBLIC_ID,
+          )
+          .then(
+            (result) => {
+              toast.success("Message send Successfully!", {
+                position: "bottom-left",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+              });
+              console.log(result);
+            },
+            (error) => {
+              toast.error("Something went wrong!", {
+                position: "bottom-left",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+              });
+              console.log(error);
+            }
+          );
+
         action.resetForm();
       },
     });
@@ -35,7 +63,7 @@ const Contact = () => {
     <div id="contact" className="app__contact">
       <h2 className="head-text">Contact Me</h2>
 
-      <div className="app__contact-form">
+      <form ref={form} className="app__contact-form">
         <div>
           <input
             className="p-text"
@@ -83,7 +111,7 @@ const Contact = () => {
         <button type="button" className="p-text" onClick={handleSubmit}>
           Send Message
         </button>
-      </div>
+      </form>
     </div>
   );
 };
